@@ -138,6 +138,8 @@
     }
 
     .arcade {
+      display: flex;
+      flex-direction: column;
       padding: 18px;
       background:
         radial-gradient(circle at top left, rgba(113, 231, 255, 0.14), transparent 24%),
@@ -579,36 +581,208 @@
     }
 
     @media (max-width: 620px) {
+      .shell {
+        gap: 12px;
+      }
+
+      .brand p,
+      .marquee {
+        display: none;
+      }
+
+      .topbar {
+        padding: 10px 14px;
+      }
+
+      .brand h1 {
+        font-size: 1.2rem;
+        letter-spacing: 0.05em;
+      }
+
+      .arcade {
+        padding: 10px;
+        border-radius: 20px;
+      }
+
+      .screen-wrap,
+      .screen-wrap::before {
+        border-radius: 18px;
+      }
+
+      .screen-wrap {
+        order: 1;
+      }
+
+      .system-strip {
+        order: 2;
+      }
+
+      .controls {
+        order: 3;
+      }
+
+      .hud {
+        order: 4;
+      }
+
+      .deck-note {
+        order: 5;
+      }
+
       .hud {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .card {
+        min-height: 66px;
+        padding: 10px 10px 8px;
+      }
+
+      .card span {
+        font-size: 0.68rem;
+      }
+
+      .card strong {
+        margin-top: 6px;
+        font-size: 1rem;
       }
 
       .system-controls {
         grid-template-columns: 1fr;
+        position: sticky;
+        bottom: calc(86px + env(safe-area-inset-bottom));
+        z-index: 5;
+      }
+
+      .system-strip {
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .meter-panel {
+        padding: 12px 12px 10px;
+      }
+
+      .meter-head {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        margin-bottom: 8px;
+      }
+
+      .meter-head strong,
+      .meter-head span {
+        white-space: normal;
+      }
+
+      .overlay {
+        position: fixed;
+        inset: 8px;
+        padding: 10px;
+        z-index: 50;
+      }
+
+      .overlay-panel {
+        width: 100%;
+        max-height: calc(100svh - 20px);
+        overflow: auto;
+        padding: 18px 14px calc(18px + env(safe-area-inset-bottom));
+        border-radius: 18px;
+      }
+
+      .overlay h2 {
+        font-size: 1.5rem;
+      }
+
+      .overlay p {
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+
+      .overlay-note {
+        font-size: 0.82rem;
+        line-height: 1.4;
+      }
+
+      .overlay-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .action-btn,
+      .action-btn.alt {
+        width: 100%;
+        min-width: 0;
       }
 
       .control-btn,
       .system-btn,
       .action-btn {
-        min-height: 58px;
+        min-height: 62px;
+        font-size: 0.94rem;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .deck-note {
+        margin: 6px 2px 0;
+        padding: 0 4px;
+        font-size: 0.8rem;
+        line-height: 1.45;
       }
     }
 
     @media (hover: none) and (pointer: coarse) {
       body {
-        padding-bottom: calc(18px + env(safe-area-inset-bottom));
+        padding: 10px 10px calc(18px + env(safe-area-inset-bottom));
       }
 
       canvas {
         cursor: default;
       }
 
+      .topbar {
+        padding: 12px;
+        border-radius: 18px;
+      }
+
+      .brand h1 {
+        font-size: 1.4rem;
+      }
+
+      .marquee {
+        padding: 10px 12px;
+      }
+
       .controls {
+        position: sticky;
         bottom: calc(10px + env(safe-area-inset-bottom));
+        z-index: 6;
+        grid-template-columns: 1fr 1.2fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 18px;
+        background: rgba(6, 14, 24, 0.9);
+        border: 1px solid rgba(113, 231, 255, 0.14);
+        backdrop-filter: blur(8px);
       }
 
       .deck-note {
-        font-size: 0.88rem;
+        font-size: 0.78rem;
+      }
+
+      .hud {
+        position: sticky;
+        top: 8px;
+        z-index: 4;
+      }
+
+      .card {
+        background: rgba(8, 18, 31, 0.88);
       }
     }
   </style>
@@ -623,7 +797,7 @@
 
       <div class="marquee">
         <strong>Control Deck</strong>
-        <p>电脑端用 `W/A/S/D` 八方向移动、鼠标左键持续射击；手机端按住战场并向任意方向滑动，战机会跟手自由移动并自动开火。</p>
+        <p>电脑端用 `W/A/S/D`、鼠标移动和左键；手机端按住战场滑动即可移动并自动开火。</p>
       </div>
     </header>
 
@@ -714,11 +888,11 @@
         </div>
 
         <div class="controls">
-          <button class="control-btn" id="leftBtn">A<span>左移</span></button>
-          <button class="control-btn fire" id="fireBtn">Fire<span>触控射击</span></button>
-          <button class="control-btn" id="rightBtn">D<span>右移</span></button>
+          <button class="control-btn" id="leftBtn">A<span>左</span></button>
+          <button class="control-btn fire" id="fireBtn">Fire<span>开火</span></button>
+          <button class="control-btn" id="rightBtn">D<span>右</span></button>
         </div>
-        <p class="deck-note">手机端玩法：手指按住战场画面后，可向上下左右任意方向滑动来控制战机，按住时会自动开火；也可以继续使用下方三个触控按钮辅助闪避。</p>
+        <p class="deck-note">手机端：按住战场滑动移动，底部按钮可辅助左右闪避；停止、重开和下一关按钮已固定到可视区域。</p>
       </section>
 
       <aside class="sidebar">
@@ -1389,15 +1563,13 @@
 
     function chooseEnemyGrade() {
       const roll = Math.random();
-      if (state.level >= 10) {
-        if (roll > 0.94) {
-          return ENEMY_GRADES[3];
-        }
+      if (state.level >= 10 && roll > 0.985) {
+        return ENEMY_GRADES[3];
       }
-      if (roll > 0.82) {
+      if (state.level >= 6 && roll > 0.9) {
         return ENEMY_GRADES[2];
       }
-      if (roll > 0.55) {
+      if (state.level >= 3 && roll > 0.72) {
         return ENEMY_GRADES[1];
       }
       return ENEMY_GRADES[0];
@@ -1423,7 +1595,7 @@
         powerLevelBoost: grade.levelBoost || 0
       };
 
-      const stageHpBonus = (state.level - 1) * 5;
+      const stageHpBonus = Math.floor((state.level - 1) * 2.5);
       const stageAttackBonus = Math.max(0, state.level - 1);
 
       if (type === "tank") {
@@ -1433,7 +1605,7 @@
           h: 62 * size,
           vx: Math.random() > 0.5 ? 120 : -120,
           vy: 120 * stage.speed * grade.speed,
-          hp: Math.ceil((1 + stageHpBonus) * grade.hp),
+          hp: Math.ceil((5 + stageHpBonus) * grade.hp),
           attack: 1 + stageAttackBonus,
           points: Math.floor(190 * grade.score),
           shootCooldown: 0.9 + Math.random() * 0.4,
@@ -1448,7 +1620,7 @@
           h: 48 * size,
           vx: 0,
           vy: 108 * stage.speed * grade.speed,
-          hp: Math.ceil((1 + stageHpBonus) * grade.hp),
+          hp: Math.ceil((2 + stageHpBonus) * grade.hp),
           attack: 1 + stageAttackBonus,
           points: Math.floor(140 * grade.score),
           shootCooldown: 0.85 + Math.random() * 0.5,
@@ -1465,7 +1637,7 @@
           h: 46 * size,
           vx: 0,
           vy: 162 * stage.speed * grade.speed,
-          hp: Math.ceil((1 + stageHpBonus) * grade.hp),
+          hp: Math.ceil((2 + stageHpBonus) * grade.hp),
           attack: 1 + stageAttackBonus,
           points: Math.floor(90 * grade.score),
           shootCooldown: 1.45 + Math.random() * 0.6,
@@ -1559,7 +1731,7 @@
       const rapid = player.rapid > 0;
       const bulletSpeed = rapid ? 920 : 820;
       player.cooldown = rapid ? 0.09 : player.baseFireDelay;
-      const damage = player.attack + (player.damageBoost > 0 ? 1 : 0);
+      const damage = Math.max(1, Math.ceil(player.attack * 0.45) + (player.damageBoost > 0 ? 1 : 0));
 
       if (rapid) {
         state.bullets.push(spawnBullet({
