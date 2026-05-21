@@ -838,6 +838,7 @@
 
       .deck-note {
         font-size: 0.78rem;
+        padding-bottom: 150px;
       }
 
       .hud {
@@ -851,30 +852,32 @@
       }
 
       .touch-layer {
-        position: sticky;
+        position: fixed;
+        left: 0;
+        right: 0;
         bottom: calc(10px + env(safe-area-inset-bottom));
-        z-index: 6;
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: end;
-        gap: 14px;
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: 20px;
-        background: rgba(6, 14, 24, 0.9);
-        border: 1px solid rgba(113, 231, 255, 0.14);
-        backdrop-filter: blur(8px);
+        z-index: 12;
+        display: block;
+        pointer-events: none;
       }
 
       .joystick-shell {
-        grid-column: 2;
-        justify-self: center;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        pointer-events: auto;
       }
 
       .fire-shell {
-        grid-column: 3;
-        justify-self: stretch;
-        min-width: 0;
+        position: absolute;
+        right: 12px;
+        bottom: 0;
+        width: 34vw;
+        min-width: 118px;
+        max-width: 160px;
+        min-height: 118px;
+        pointer-events: auto;
       }
     }
   </style>
