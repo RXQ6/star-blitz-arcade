@@ -879,6 +879,10 @@
         min-height: 118px;
         pointer-events: auto;
       }
+
+      .fire-shell {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -999,7 +1003,7 @@
             </div>
           </div>
         </div>
-        <p class="deck-note">手机端：按住战场滑动移动，底部按钮可辅助左右闪避；停止、重开和下一关按钮已固定到可视区域。</p>
+        <p class="deck-note">手机端：直接推动底部中间摇杆即可一边移动一边持续开火；停止、重开和下一关按钮已固定到可视区域。</p>
       </section>
 
       <aside class="sidebar">
@@ -1095,7 +1099,6 @@
     const fireBtn = document.getElementById("fireBtn");
     const joystickBase = document.getElementById("joystickBase");
     const joystickThumb = document.getElementById("joystickThumb");
-    const touchFireZone = document.getElementById("touchFireZone");
 
     const WIDTH = 1600;
     const HEIGHT = 900;
@@ -2924,23 +2927,6 @@
 
     joystickBase.addEventListener("pointercancel", () => {
       resetJoystick();
-    });
-
-    touchFireZone.addEventListener("pointerdown", (event) => {
-      event.preventDefault();
-      initAudio();
-      input.fire = true;
-      touchFireZone.setPointerCapture?.(event.pointerId);
-    });
-
-    touchFireZone.addEventListener("pointerup", (event) => {
-      event.preventDefault();
-      input.fire = false;
-      touchFireZone.releasePointerCapture?.(event.pointerId);
-    });
-
-    touchFireZone.addEventListener("pointercancel", () => {
-      input.fire = false;
     });
 
     canvas.addEventListener("contextmenu", (event) => {
