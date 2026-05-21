@@ -993,18 +993,18 @@
     const MAX_DPR = 2;
 
     const LEVELS = [
-      { threshold: 0, name: "启航区", spawnInterval: 1.06, speed: 1.00, bulletSpeed: 1.00, formationChance: 0.10, pickupRate: 0.22, music: "pulse", theme: "launch", weights: { scout: 0.78, zigzag: 0.14, tank: 0.06, sniper: 0.02 } },
-      { threshold: 600, name: "电离层", spawnInterval: 0.98, speed: 1.08, bulletSpeed: 1.05, formationChance: 0.14, pickupRate: 0.21, music: "ion", theme: "ion", weights: { scout: 0.64, zigzag: 0.20, tank: 0.10, sniper: 0.06 } },
-      { threshold: 1500, name: "碎星带", spawnInterval: 0.90, speed: 1.18, bulletSpeed: 1.10, formationChance: 0.18, pickupRate: 0.20, music: "asteroid", theme: "asteroid", weights: { scout: 0.55, zigzag: 0.22, tank: 0.13, sniper: 0.10 } },
-      { threshold: 3000, name: "镜像回廊", spawnInterval: 0.82, speed: 1.28, bulletSpeed: 1.18, formationChance: 0.24, pickupRate: 0.20, music: "mirror", theme: "mirror", weights: { scout: 0.46, zigzag: 0.24, tank: 0.16, sniper: 0.14 } },
-      { threshold: 5600, name: "磁暴井", spawnInterval: 0.74, speed: 1.40, bulletSpeed: 1.26, formationChance: 0.28, pickupRate: 0.19, music: "magstorm", theme: "magstorm", weights: { scout: 0.39, zigzag: 0.25, tank: 0.19, sniper: 0.17 } },
-      { threshold: 9800, name: "脉冲峡谷", spawnInterval: 0.66, speed: 1.54, bulletSpeed: 1.36, formationChance: 0.32, pickupRate: 0.18, music: "pulsecanyon", theme: "pulsecanyon", weights: { scout: 0.34, zigzag: 0.26, tank: 0.21, sniper: 0.19 } },
-      { threshold: 16500, name: "赤焰轨道", spawnInterval: 0.58, speed: 1.68, bulletSpeed: 1.48, formationChance: 0.36, pickupRate: 0.18, music: "flare", theme: "flare", weights: { scout: 0.29, zigzag: 0.27, tank: 0.23, sniper: 0.21 } },
-      { threshold: 26800, name: "光矛舰线", spawnInterval: 0.50, speed: 1.82, bulletSpeed: 1.60, formationChance: 0.40, pickupRate: 0.17, music: "lance", theme: "lance", weights: { scout: 0.24, zigzag: 0.28, tank: 0.24, sniper: 0.24 } },
-      { threshold: 42500, name: "裂隙前庭", spawnInterval: 0.44, speed: 1.96, bulletSpeed: 1.72, formationChance: 0.44, pickupRate: 0.17, music: "rift", theme: "rift", weights: { scout: 0.20, zigzag: 0.29, tank: 0.25, sniper: 0.26 } },
-      { threshold: 66500, name: "恒星风暴", spawnInterval: 0.38, speed: 2.12, bulletSpeed: 1.84, formationChance: 0.48, pickupRate: 0.16, music: "solar", theme: "solar", weights: { scout: 0.17, zigzag: 0.28, tank: 0.27, sniper: 0.28 } },
-      { threshold: 103000, name: "深空断层", spawnInterval: 0.34, speed: 2.28, bulletSpeed: 1.98, formationChance: 0.52, pickupRate: 0.16, music: "fault", theme: "fault", weights: { scout: 0.14, zigzag: 0.29, tank: 0.28, sniper: 0.29 } },
-      { threshold: 158000, name: "零域王座", spawnInterval: 0.30, speed: 2.46, bulletSpeed: 2.14, formationChance: 0.58, pickupRate: 0.15, music: "throne", theme: "throne", weights: { scout: 0.10, zigzag: 0.28, tank: 0.30, sniper: 0.32 } }
+      { threshold: 0, name: "启航区", spawnInterval: 1.20, speed: 1.00, bulletSpeed: 1.00, formationChance: 0.06, pickupRate: 0.22, music: "pulse", theme: "launch", weights: { scout: 0.78, zigzag: 0.14, tank: 0.06, sniper: 0.02 } },
+      { threshold: 600, name: "电离层", spawnInterval: 1.10, speed: 1.08, bulletSpeed: 1.05, formationChance: 0.08, pickupRate: 0.21, music: "ion", theme: "ion", weights: { scout: 0.64, zigzag: 0.20, tank: 0.10, sniper: 0.06 } },
+      { threshold: 1500, name: "碎星带", spawnInterval: 1.02, speed: 1.18, bulletSpeed: 1.10, formationChance: 0.10, pickupRate: 0.20, music: "asteroid", theme: "asteroid", weights: { scout: 0.55, zigzag: 0.22, tank: 0.13, sniper: 0.10 } },
+      { threshold: 3000, name: "镜像回廊", spawnInterval: 0.96, speed: 1.28, bulletSpeed: 1.18, formationChance: 0.12, pickupRate: 0.20, music: "mirror", theme: "mirror", weights: { scout: 0.46, zigzag: 0.24, tank: 0.16, sniper: 0.14 } },
+      { threshold: 5600, name: "磁暴井", spawnInterval: 0.90, speed: 1.40, bulletSpeed: 1.26, formationChance: 0.14, pickupRate: 0.19, music: "magstorm", theme: "magstorm", weights: { scout: 0.39, zigzag: 0.25, tank: 0.19, sniper: 0.17 } },
+      { threshold: 9800, name: "脉冲峡谷", spawnInterval: 0.84, speed: 1.54, bulletSpeed: 1.36, formationChance: 0.16, pickupRate: 0.18, music: "pulsecanyon", theme: "pulsecanyon", weights: { scout: 0.34, zigzag: 0.26, tank: 0.21, sniper: 0.19 } },
+      { threshold: 16500, name: "赤焰轨道", spawnInterval: 0.78, speed: 1.68, bulletSpeed: 1.48, formationChance: 0.18, pickupRate: 0.18, music: "flare", theme: "flare", weights: { scout: 0.29, zigzag: 0.27, tank: 0.23, sniper: 0.21 } },
+      { threshold: 26800, name: "光矛舰线", spawnInterval: 0.72, speed: 1.82, bulletSpeed: 1.60, formationChance: 0.20, pickupRate: 0.17, music: "lance", theme: "lance", weights: { scout: 0.24, zigzag: 0.28, tank: 0.24, sniper: 0.24 } },
+      { threshold: 42500, name: "裂隙前庭", spawnInterval: 0.68, speed: 1.96, bulletSpeed: 1.72, formationChance: 0.22, pickupRate: 0.17, music: "rift", theme: "rift", weights: { scout: 0.20, zigzag: 0.29, tank: 0.25, sniper: 0.26 } },
+      { threshold: 66500, name: "恒星风暴", spawnInterval: 0.64, speed: 2.12, bulletSpeed: 1.84, formationChance: 0.24, pickupRate: 0.16, music: "solar", theme: "solar", weights: { scout: 0.17, zigzag: 0.28, tank: 0.27, sniper: 0.28 } },
+      { threshold: 103000, name: "深空断层", spawnInterval: 0.60, speed: 2.28, bulletSpeed: 1.98, formationChance: 0.26, pickupRate: 0.16, music: "fault", theme: "fault", weights: { scout: 0.14, zigzag: 0.29, tank: 0.28, sniper: 0.29 } },
+      { threshold: 158000, name: "零域王座", spawnInterval: 0.56, speed: 2.46, bulletSpeed: 2.14, formationChance: 0.28, pickupRate: 0.15, music: "throne", theme: "throne", weights: { scout: 0.10, zigzag: 0.28, tank: 0.30, sniper: 0.32 } }
     ];
 
     const STAGE_PALETTES = {
@@ -1023,10 +1023,10 @@
     };
 
     const ENEMY_GRADES = [
-      { key: "normal", label: "普通", score: 1, hp: 1, size: 1.00, speed: 1.00, fireRate: 1.00, dropRate: 1.00, xp: 25, color: ["#ff6e7e", "#ff9d73"] },
-      { key: "elite", label: "优秀", score: 1.8, hp: 1.8, size: 1.10, speed: 1.06, fireRate: 0.92, dropRate: 1.25, xp: 40, color: ["#77e7ff", "#8ebcff"] },
-      { key: "ace", label: "精英", score: 2.9, hp: 2.8, size: 1.24, speed: 1.12, fireRate: 0.84, dropRate: 1.55, xp: 70, color: ["#ffd86d", "#ff7ca3"] },
-      { key: "king", label: "王者", score: 5.2, hp: 5.8, size: 1.42, speed: 1.18, fireRate: 0.74, dropRate: 2.10, xp: 1000, levelBoost: 10, color: ["#b3fffe", "#ffb3ff"] }
+      { key: "normal", label: "普通", score: 1, hp: 0.7, size: 1.00, speed: 1.00, fireRate: 1.00, dropRate: 1.00, xp: 25, color: ["#ff6e7e", "#ff9d73"] },
+      { key: "elite", label: "优秀", score: 1.8, hp: 1.1, size: 1.10, speed: 1.06, fireRate: 0.92, dropRate: 1.25, xp: 40, color: ["#77e7ff", "#8ebcff"] },
+      { key: "ace", label: "精英", score: 2.9, hp: 1.6, size: 1.24, speed: 1.12, fireRate: 0.84, dropRate: 1.55, xp: 70, color: ["#ffd86d", "#ff7ca3"] },
+      { key: "king", label: "王者", score: 5.2, hp: 2.8, size: 1.42, speed: 1.18, fireRate: 0.74, dropRate: 2.10, xp: 1000, levelBoost: 10, color: ["#b3fffe", "#ffb3ff"] }
     ];
 
     const PICKUP_META = {
@@ -1127,8 +1127,8 @@
         speed: 640,
         baseFireDelay: 0.17,
         cooldown: 0,
-        maxHp: 3,
-        hp: 3,
+        maxHp: 5,
+        hp: 5,
         invuln: 0,
         rapid: 0,
         shield: 0,
@@ -1595,7 +1595,7 @@
         powerLevelBoost: grade.levelBoost || 0
       };
 
-      const stageHpBonus = Math.floor((state.level - 1) * 2.5);
+      const stageHpBonus = Math.floor((state.level - 1) * 1.2);
       const stageAttackBonus = Math.max(0, state.level - 1);
 
       if (type === "tank") {
@@ -1605,7 +1605,7 @@
           h: 62 * size,
           vx: Math.random() > 0.5 ? 120 : -120,
           vy: 120 * stage.speed * grade.speed,
-          hp: Math.ceil((5 + stageHpBonus) * grade.hp),
+          hp: Math.ceil((3 + stageHpBonus) * grade.hp),
           attack: 1 + stageAttackBonus,
           points: Math.floor(190 * grade.score),
           shootCooldown: 0.9 + Math.random() * 0.4,
@@ -1620,7 +1620,7 @@
           h: 48 * size,
           vx: 0,
           vy: 108 * stage.speed * grade.speed,
-          hp: Math.ceil((2 + stageHpBonus) * grade.hp),
+          hp: Math.ceil((1 + stageHpBonus) * grade.hp),
           attack: 1 + stageAttackBonus,
           points: Math.floor(140 * grade.score),
           shootCooldown: 0.85 + Math.random() * 0.5,
@@ -1637,7 +1637,7 @@
           h: 46 * size,
           vx: 0,
           vy: 162 * stage.speed * grade.speed,
-          hp: Math.ceil((2 + stageHpBonus) * grade.hp),
+          hp: Math.ceil((1 + stageHpBonus) * grade.hp),
           attack: 1 + stageAttackBonus,
           points: Math.floor(90 * grade.score),
           shootCooldown: 1.45 + Math.random() * 0.6,
@@ -1654,7 +1654,7 @@
         h: 34 * size,
         vx: 0,
         vy: 188 * stage.speed * grade.speed,
-        hp: Math.ceil((1 + stageHpBonus) * grade.hp),
+        hp: Math.max(1, Math.ceil((1 + stageHpBonus) * grade.hp)),
         attack: 1 + stageAttackBonus,
         points: Math.floor(42 * grade.score),
         shootCooldown: state.level >= 4 ? 2 + Math.random() * 0.7 : 999,
@@ -1667,15 +1667,20 @@
       if (state.stageCleared) {
         return;
       }
+      const maxEnemiesOnScreen = 6 + Math.min(4, Math.floor(state.level / 3));
+      if (state.enemies.length >= maxEnemiesOnScreen) {
+        return;
+      }
       const lanes = [140, 290, 440, 590, 740, 890, 1040, 1190, 1340];
 
       if (Math.random() < stage.formationChance) {
-        const count = Math.random() < 0.55 ? 3 : 4;
+        const count = Math.random() < 0.7 ? 2 : 3;
         const spacing = 120;
         const centerLane = lanes[Math.floor(Math.random() * (lanes.length - 2)) + 1];
         const type = Math.random() < 0.65 ? "scout" : "zigzag";
         const startX = centerLane - ((count - 1) * spacing) / 2;
-        for (let index = 0; index < count; index += 1) {
+        const allowedCount = Math.min(count, maxEnemiesOnScreen - state.enemies.length);
+        for (let index = 0; index < allowedCount; index += 1) {
           state.enemies.push(createEnemy(type, startX + index * spacing, -90 - index * 18));
         }
         return;
