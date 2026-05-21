@@ -2857,6 +2857,9 @@
       input.right = dx > 10;
       input.up = dy < -10;
       input.down = dy > 10;
+      if (joystickState.active) {
+        input.fire = Math.hypot(dx, dy) > 10;
+      }
       applyJoystickVisual(dx, dy);
     }
 
@@ -2869,6 +2872,7 @@
       input.right = false;
       input.up = false;
       input.down = false;
+      input.fire = false;
       applyJoystickVisual(0, 0);
     }
 
